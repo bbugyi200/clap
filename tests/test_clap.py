@@ -165,3 +165,16 @@ def test_help(mocker: MockerFixture) -> None:
     main = clap.main_factory(parse_cli_args, run)
     exit_code = main(["", "--help"])
     assert exit_code == 0
+
+
+def test_new_command_factory() -> None:
+    parser = clap.Parser()
+
+    new_command = clap.new_command_factory(parser, dest="command")
+
+    foo = new_command("foo", help="Test FOO subcommand.")
+    foo.add_argument("--bar", action="store_true", help="Test BAR option.")
+
+    args = parser.parse_args(["foo", "--bar"])
+    assert args.command == "foo"
+    assert args.bar

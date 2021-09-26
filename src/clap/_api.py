@@ -64,7 +64,7 @@ def main_factory(
     """
 
     def main(argv: Sequence[str] = None) -> int:
-        if argv is None:
+        if argv is None:  # pragma: no cover
             argv = sys.argv
 
         args = parse_cli_args(argv)
@@ -84,10 +84,10 @@ def main_factory(
 
         try:
             status = run(args)
-        except KeyboardInterrupt:
+        except KeyboardInterrupt:  # pragma: no cover
             logger.info("Received SIGINT signal. Terminating script...")
             return 0
-        except Exception:
+        except Exception:  # pragma: no cover
             logger.exception(
                 "An unrecoverable error has been raised. Terminating script..."
             )
