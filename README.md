@@ -1,6 +1,6 @@
 # clap
 
-**(C)ommand (L)ine (A)rgument (P)arsing... A thin wrapper around the standard argparse library.**
+**(C)ommand (L)ine (A)rgument (P)arsing... A thin wrapper around the standard Python argparse library.**
 
 ## Badges 📛
 

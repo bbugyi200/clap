@@ -1,6 +1,6 @@
 """(C)ommand (L)ine (A)rgument (P)arsing.
 
-A thin wrapper around the standard argparse library.
+A thin wrapper around the standard Python argparse library.
 """
 
 __author__ = "Bryan M Bugyi"
