@@ -7,7 +7,7 @@ __author__ = "Bryan M Bugyi"
 __email__ = "bryanbugyi34@gmail.com"
 __version__ = "0.2.1"
 
-from ._api import (
+from .api import (
     Arguments,
     MainType,
     NewCommand,
