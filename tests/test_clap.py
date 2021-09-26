@@ -168,6 +168,7 @@ def test_help(mocker: MockerFixture) -> None:
 
 
 def test_new_command_factory() -> None:
+    """Test the clap.new_command_factory() function."""
     parser = clap.Parser()
 
     new_command = clap.new_command_factory(parser, dest="command")
