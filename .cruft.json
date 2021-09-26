@@ -1,0 +1,22 @@
+{
+  "template": "https://github.com/bbugyi200/cc-python",
+  "commit": "38d2e6632d0ca7acbdb1ecb9fd8ec3f9900509ab",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author": "Bryan M Bugyi",
+      "email": "bryanbugyi34@gmail.com",
+      "github_username": "bbugyi200",
+      "git_org_name": "bbugyi200",
+      "git_repo_name": "clap",
+      "package_name": "clap",
+      "pypi_package_name": "python-clap",
+      "read_the_docs_domain": "python-clap",
+      "package_description": "(C)ommand (L)ine (A)rgument (P)arsing... A thin wrapper around the standard argparse library.",
+      "package_type": "library",
+      "_template": "https://github.com/bbugyi200/cc-python",
+      "package_path": "clap"
+    }
+  },
+  "directory": null
+}
