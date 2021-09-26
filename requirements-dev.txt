@@ -74,8 +74,9 @@ idna==3.2
     # via requests
 imagesize==1.2.0
     # via sphinx
-importlib-metadata==4.8.1
+importlib-metadata==4.8.1 ; python_version < "3.8"
     # via
+    #   -r requirements.in
     #   backports.entry-points-selectable
     #   bugyi.lib
     #   flake8
