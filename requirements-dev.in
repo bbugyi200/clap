@@ -1,4 +1,5 @@
 ### Tests
+freezegun
 pytest
 pytest-cov
 pytest-mock
@@ -14,6 +15,9 @@ isort
 mypy
 pydocstyle[toml]
 pylint
+
+### Types
+types-freezegun
 
 ### Docs
 m2r2
