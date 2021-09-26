@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog], and this project adheres to
 
 No notable changes have been made.
 
+## [0.2.0](https://github.com/bbugyi200/clap/compare/0.1.0...0.2.0) - 2021-09-25
+
+### Added
+
+* Copied code from `bugyi.lib.cli` module.
+
 ## [0.1.0](https://github.com/bbugyi200/clap/releases/tag/0.1.0) - 2021-09-26
 
 ### Miscellaneous
