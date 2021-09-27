@@ -74,7 +74,7 @@ def main_factory(
 
         init_logging(logs=logs, verbose=verbose)
 
-        logger = Logger("cli", args=args).bind_fargs(argv=argv)
+        logger = Logger("clap", args=args).bind_fargs(argv=argv)
 
         # The following log messages will obviously only be visible if the
         # corresponding log level really is enabled, but stating the obvious in
