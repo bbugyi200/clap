@@ -29,6 +29,8 @@ from logutils import (
     init_logging,
 )
 
+from . import __version__
+
 
 try:
     from importlib.metadata import (  # type: ignore[attr-defined]
@@ -187,11 +189,15 @@ def Parser(
             pyversion = ".".join(str(x) for x in sys.version_info[:3])
             version += f"\n    using Python {pyversion}"
 
-            lib_version = get_version(__package__)
-            version += f"\n{__package__} {lib_version}"
+            try:
+                clap_version = get_version(__package__)
+            except PackageNotFoundError:
+                clap_version = __version__
 
-            lib_location = _get_package_location(__file__, __package__)
-            version += f"\n    from {lib_location}"
+            version += f"\n{__package__} {clap_version}"
+
+            clap_location = _get_package_location(__file__, __package__)
+            version += f"\n    from {clap_location}"
 
             parser.add_argument("--version", action="version", version=version)
         except PackageNotFoundError:
