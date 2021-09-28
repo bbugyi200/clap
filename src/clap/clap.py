@@ -1,4 +1,8 @@
-"""Helper functions for command-line argument parsing."""
+"""The clap package's catch-all module.
+
+You should only add code to this module when you are unable to find ANY other
+module to add it to.
+"""
 
 import argparse
 from dataclasses import dataclass
