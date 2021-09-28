@@ -29,8 +29,6 @@ from logutils import (
     init_logging,
 )
 
-from . import __version__
-
 
 try:
     from importlib.metadata import (  # type: ignore[attr-defined]
@@ -192,6 +190,8 @@ def Parser(
             try:
                 clap_version = get_version(__package__)
             except PackageNotFoundError:
+                from . import __version__
+
                 clap_version = __version__
 
             version += f"\n{__package__} {clap_version}"
