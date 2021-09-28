@@ -30,5 +30,5 @@ typing-extensions==3.10.0.2
     #   importlib-metadata
     #   pydantic
     #   structlog
-zipp==3.5.0
+zipp==3.5.1
     # via importlib-metadata
