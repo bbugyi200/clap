@@ -253,7 +253,7 @@ def _get_package_location(file_path: str, package: str) -> str:
     result = str(file_parent)
 
     package_subpath = package.replace(".", "/")
-    result = result.replace(package_subpath, "")
+    result = "".join(result.rsplit(package_subpath, 1))
 
     result = _shorten_homedir(result)
     result = result.rstrip("/")
