@@ -4,7 +4,7 @@
 #
 #    "make update-requirements"
 #
-bugyi.lib==0.4.0
+bugyi.lib==0.5.0
     # via
     #   -r requirements.in
     #   pylogutils
@@ -30,5 +30,5 @@ typing-extensions==3.10.0.2
     #   importlib-metadata
     #   pydantic
     #   structlog
-zipp==3.5.1
+zipp==3.6.0
     # via importlib-metadata
