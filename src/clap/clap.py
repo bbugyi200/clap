@@ -10,6 +10,7 @@ import inspect
 import os
 from pathlib import Path
 import re
+import signal
 import sys
 from typing import (
     Any,
@@ -90,7 +91,7 @@ def main_factory(
             status = run(args)
         except KeyboardInterrupt:  # pragma: no cover
             logger.info("Received SIGINT signal. Terminating script...")
-            return 0
+            return 128 + signal.SIGINT.value
         except Exception:  # pragma: no cover
             logger.exception(
                 "An unrecoverable error has been raised. Terminating script..."
