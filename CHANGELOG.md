@@ -9,9 +9,16 @@ The format is based on [Keep a Changelog], and this project adheres to
 [Semantic Versioning]: https://semver.org/
 
 
-## [Unreleased](https://github.com/bbugyi200/clap/compare/0.3.1...HEAD)
+## [Unreleased](https://github.com/bbugyi200/clap/compare/0.4.0...HEAD)
 
 No notable changes have been made.
+
+
+## [0.4.0](https://github.com/bbugyi200/clap/compare/0.3.1...0.4.0) - 2021-12-20
+
+### Changed
+
+* *BREAKING CHANGE*: Replace `clap.Arguments` class with the `clap.Config` class.
 
 
 ## [0.3.1](https://github.com/bbugyi200/clap/compare/0.3.0...0.3.1) - 2021-12-20

@@ -6,7 +6,7 @@ A thin wrapper around the standard Python argparse library.
 import logging as _logging
 
 from ._core import (
-    Arguments,
+    Config,
     MainType,
     NewCommand,
     Parser,
@@ -16,7 +16,7 @@ from ._core import (
 
 
 __all__ = [
-    "Arguments",
+    "Config",
     "MainType",
     "NewCommand",
     "Parser",

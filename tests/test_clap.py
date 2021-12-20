@@ -8,7 +8,6 @@ from typing import Any, Callable, List, Literal, Sequence, Union
 
 from _pytest.capture import CaptureFixture, CaptureResult
 import logrus
-from pydantic.dataclasses import dataclass
 from pytest import fixture, mark, param
 from pytest_mock.plugin import MockerFixture
 import structlog
@@ -21,14 +20,13 @@ params = mark.parametrize
 LoggerType = Literal["logging", "structlog"]
 
 
-@dataclass(frozen=True)
-class Arguments(clap.Arguments):
-    """Test Arguments for clap.main_factory()."""
+class Config(clap.Config):
+    """Test Config for clap.main_factory()."""
 
     do_stuff: bool
 
 
-def parse_cli_args(argv: Sequence[str]) -> Arguments:
+def parse_cli_args(argv: Sequence[str]) -> Config:
     """This CLI parser function is meant to be passed into main_factory()."""
     parser = clap.Parser()
     parser.add_argument("--do-stuff", action="store_true")
@@ -36,7 +34,7 @@ def parse_cli_args(argv: Sequence[str]) -> Arguments:
     args = parser.parse_args(argv[1:])
     kwargs = vars(args)
 
-    return Arguments(**kwargs)
+    return Config(**kwargs)
 
 
 def run_factory(logger_type: LoggerType) -> Callable[[Any], int]:
@@ -48,7 +46,7 @@ def run_factory(logger_type: LoggerType) -> Callable[[Any], int]:
         assert logger_type == "logging"
         log = logging.getLogger("test")
 
-    def run(args: Arguments) -> int:
+    def run(cfg: Config) -> int:
         print("Starting CLI test...")
 
         if logger_type == "structlog":
@@ -60,7 +58,7 @@ def run_factory(logger_type: LoggerType) -> Callable[[Any], int]:
         log.info("Are we going to do stuff?")
         log.warning("What stuff?!?!?!")
 
-        if args.do_stuff:
+        if cfg.do_stuff:
             if logger_type == "structlog":
                 log.info("Doing some %s...", "stuff", stuff="???")
             else:

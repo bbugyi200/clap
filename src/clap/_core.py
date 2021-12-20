@@ -4,8 +4,9 @@ You should only add code to this module when you are unable to find ANY other
 module to add it to.
 """
 
+from __future__ import annotations
+
 import argparse
-from dataclasses import dataclass
 from importlib.metadata import PackageNotFoundError, version as get_version
 import inspect
 import os
@@ -35,6 +36,7 @@ from logrus import (
     get_default_logfile,
     init_logging,
 )
+from pydantic import BaseSettings
 
 
 _T = TypeVar("_T")
@@ -96,9 +98,8 @@ def main_factory(
     return main
 
 
-@dataclass(frozen=True)
-class Arguments:
-    """Default CLI arguments corresponding to ``Parser``."""
+class Config(BaseSettings):
+    """Default CLI arguments / app configuration."""
 
     logs: List[Log]
     verbose: int
