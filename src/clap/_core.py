@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from importlib.metadata import PackageNotFoundError, version as get_version
 import inspect
 import os
 from pathlib import Path
@@ -35,15 +36,6 @@ from logutils import (
     get_default_logfile,
     init_logging,
 )
-
-
-try:
-    from importlib.metadata import (  # type: ignore[attr-defined]
-        PackageNotFoundError,
-        version as get_version,
-    )
-except ImportError:
-    from importlib_metadata import PackageNotFoundError, version as get_version
 
 
 _T = TypeVar("_T")
