@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog], and this project adheres to
 No notable changes have been made.
 
 
-## [0.2.2](https://github.com/bbugyi200/clap/compare/0.2.2...0.3.0) - 2021-12-20
+## [0.3.0](https://github.com/bbugyi200/clap/compare/0.2.2...0.3.0) - 2021-12-20
 
 ### Added
 
