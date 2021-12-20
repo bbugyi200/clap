@@ -27,8 +27,8 @@ black==21.12b0
 bugyi.lib==0.11.0
     # via
     #   -r requirements.in
-    #   pylogutils
     #   python-clap
+    #   python-logrus
 bump2version==1.0.1
     # via -r requirements-dev.in
 certifi==2021.10.8
@@ -47,7 +47,7 @@ click==8.0.3
 cogapp==3.3.0
     # via -r requirements-dev.in
 colorama==0.4.4
-    # via pylogutils
+    # via python-logrus
 colored==1.4.3
     # via syrupy
 cookiecutter==1.7.3
@@ -144,7 +144,6 @@ pycodestyle==2.8.0
 pydantic==1.8.2
     # via
     #   -r requirements.in
-    #   pylogutils
     #   python-clap
 pydocstyle[toml]==6.1.1
     # via -r requirements-dev.in
@@ -154,10 +153,6 @@ pygments==2.10.0
     # via sphinx
 pylint==2.12.2
     # via -r requirements-dev.in
-pylogutils==0.1.4
-    # via
-    #   -r requirements.in
-    #   python-clap
 pyparsing==3.0.6
     # via packaging
 pytest==6.2.5
@@ -174,6 +169,10 @@ python-dateutil==2.8.2
     # via
     #   bugyi.lib
     #   freezegun
+python-logrus==0.1.0
+    # via
+    #   -r requirements.in
+    #   python-clap
 python-result==0.2.1
     # via bugyi.lib
 python-slugify==5.0.2
@@ -220,7 +219,7 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 structlog==21.5.0
-    # via pylogutils
+    # via python-logrus
 syrupy==1.5.0
     # via -r requirements-dev.in
 text-unidecode==1.3
