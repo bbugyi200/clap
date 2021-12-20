@@ -5,7 +5,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL := /bin/bash
 
-DOCKER_CMD := USER_ID=$(shell id -u) GROUP_ID=$(shell id -g) docker-compose run --rm clap
+DOCKER_CMD := USER_ID=$(shell id -u) GROUP_ID=$(shell id -g) docker-compose run --rm bbugyi200.clap
 MAKE_CMD := make -f targets.mk
 USE_DOCKER_FILE := .lcldev/use-docker
 

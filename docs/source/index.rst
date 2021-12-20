@@ -10,8 +10,8 @@ Welcome to clap's documentation!
    :caption: Table of Contents
 
     API Reference <modules>
-    CHANGELOG <changelog>
-    CONTRIBUTING <contributing>
+    Changelog <changelog>
+    Development Guide <contributing>
     README <readme>
 
 
