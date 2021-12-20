@@ -9,9 +9,16 @@ The format is based on [Keep a Changelog], and this project adheres to
 [Semantic Versioning]: https://semver.org/
 
 
-## [Unreleased](https://github.com/bbugyi200/clap/compare/0.3.0...HEAD)
+## [Unreleased](https://github.com/bbugyi200/clap/compare/0.3.1...HEAD)
 
 No notable changes have been made.
+
+
+## [0.3.1](https://github.com/bbugyi200/clap/compare/0.3.0...0.3.1) - 2021-12-20
+
+### Fixed
+
+* Fix breaking changes from `bugyi.lib==0.11` and update requirements.
 
 
 ## [0.3.0](https://github.com/bbugyi200/clap/compare/0.2.2...0.3.0) - 2021-12-20
@@ -22,7 +29,7 @@ No notable changes have been made.
 
 ### Removed
 
-* **BREAKING CHANGE**: Sync with cc-python version `v2021.12.20` (drops Python3.7 support).
+* *BREAKING CHANGE*: Sync with cc-python version `v2021.12.20` (drops Python3.7 support).
 
 
 ## [0.2.2](https://github.com/bbugyi200/clap/compare/0.2.1...0.2.2) - 2021-09-28
