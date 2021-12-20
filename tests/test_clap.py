@@ -7,7 +7,7 @@ import re
 from typing import Any, Callable, List, Literal, Sequence, Union
 
 from _pytest.capture import CaptureFixture, CaptureResult
-import logutils
+import logrus
 from pydantic.dataclasses import dataclass
 from pytest import fixture, mark, param
 from pytest_mock.plugin import MockerFixture
@@ -41,9 +41,9 @@ def parse_cli_args(argv: Sequence[str]) -> Arguments:
 
 def run_factory(logger_type: LoggerType) -> Callable[[Any], int]:
     """This runner function is meant to be passed into clap.main_factory()."""
-    log: Union[logging.Logger, logutils.BetterBoundLogger]
+    log: Union[logging.Logger, logrus.BetterBoundLogger]
     if logger_type == "structlog":
-        log = logutils.Logger("test")
+        log = logrus.Logger("test")
     else:
         assert logger_type == "logging"
         log = logging.getLogger("test")

@@ -27,7 +27,7 @@ from typing import (
 
 from bugyi.lib.meta import scriptname
 from bugyi.lib.types import literal_to_list
-from logutils import (
+from logrus import (
     Log,
     LogFormat,
     Logger,

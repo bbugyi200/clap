@@ -13,7 +13,7 @@ from typeguard import typechecked
 from typeguard.importhook import install_import_hook
 
 
-pytest_plugins = ["logutils.pytest_plugin"]
+pytest_plugins = ["logrus.pytest_plugin"]
 
 
 def pytest_configure(config: Config) -> None:
