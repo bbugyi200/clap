@@ -19,13 +19,14 @@ from typing import (
     Iterable,
     List,
     Optional,
+    Protocol,
     Sequence,
     TypeVar,
     cast,
 )
 
 from bugyi.lib.meta import scriptname
-from bugyi.lib.types import Protocol, literal_to_list
+from bugyi.lib.types import literal_to_list
 from logutils import (
     Log,
     LogFormat,

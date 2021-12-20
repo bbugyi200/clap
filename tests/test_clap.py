@@ -4,10 +4,9 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Any, Callable, List, Sequence, Union
+from typing import Any, Callable, List, Literal, Sequence, Union
 
 from _pytest.capture import CaptureFixture, CaptureResult
-from bugyi.lib.types import Literal
 import logutils
 from pydantic.dataclasses import dataclass
 from pytest import fixture, mark, param
