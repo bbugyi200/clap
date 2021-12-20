@@ -9,9 +9,21 @@ The format is based on [Keep a Changelog], and this project adheres to
 [Semantic Versioning]: https://semver.org/
 
 
-## [Unreleased](https://github.com/bbugyi200/clap/compare/0.2.2...HEAD)
+## [Unreleased](https://github.com/bbugyi200/clap/compare/0.3.0...HEAD)
 
 No notable changes have been made.
+
+
+## [0.2.2](https://github.com/bbugyi200/clap/compare/0.2.2...0.3.0) - 2021-12-20
+
+### Added
+
+* New `comma_list_or_file` helper class for parsing comma-separated CLI args.
+
+### Removed
+
+* **BREAKING CHANGE**: Sync with cc-python version `v2021.12.20` (drops Python3.7 support).
+
 
 ## [0.2.2](https://github.com/bbugyi200/clap/compare/0.2.1...0.2.2) - 2021-09-28
 
@@ -19,17 +31,20 @@ No notable changes have been made.
 
 * Fix `--version` option.
 
+
 ## [0.2.1](https://github.com/bbugyi200/clap/compare/0.2.0...0.2.1) - 2021-09-26
 
 ### Fixed
 
 * Added `importlib-metadata` package as direct dependency of this package.
 
+
 ## [0.2.0](https://github.com/bbugyi200/clap/compare/0.1.0...0.2.0) - 2021-09-26
 
 ### Added
 
 * Copied code from `bugyi.lib.cli` module.
+
 
 ## [0.1.0](https://github.com/bbugyi200/clap/releases/tag/0.1.0) - 2021-09-26
 
