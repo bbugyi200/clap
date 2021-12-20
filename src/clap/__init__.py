@@ -5,7 +5,7 @@ A thin wrapper around the standard Python argparse library.
 
 import logging as _logging
 
-from .clap import (
+from ._core import (
     Arguments,
     MainType,
     NewCommand,
@@ -14,6 +14,15 @@ from .clap import (
     new_command_factory,
 )
 
+
+__all__ = [
+    "Arguments",
+    "MainType",
+    "NewCommand",
+    "Parser",
+    "main_factory",
+    "new_command_factory",
+]
 
 __author__ = "Bryan M Bugyi"
 __email__ = "bryanbugyi34@gmail.com"
