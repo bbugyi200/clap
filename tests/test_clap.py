@@ -8,6 +8,7 @@ from typing import Any, Callable, List, Literal, Sequence, Union
 
 from _pytest.capture import CaptureFixture, CaptureResult
 import logrus
+import pytest
 from pytest import fixture, mark, param
 from pytest_mock.plugin import MockerFixture
 import structlog
@@ -178,3 +179,12 @@ def test_new_command_factory() -> None:
     args = parser.parse_args(["foo", "--bar"])
     assert args.command == "foo"
     assert args.bar
+
+
+def test_config_is_immutable() -> None:
+    """Test that the Config object's attributes are immutable."""
+    cfg = parse_cli_args(["", "--do-stuff"])
+    assert cfg.do_stuff
+
+    with pytest.raises(TypeError):
+        cfg.do_stuff = False

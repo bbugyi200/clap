@@ -67,14 +67,14 @@ def main_factory(
         if argv is None:  # pragma: no cover
             argv = sys.argv
 
-        args = parse_cli_args(argv)
+        cfg = parse_cli_args(argv)
 
-        verbose: int = getattr(args, "verbose", 0)
-        logs: List[Log] = getattr(args, "logs", [])
+        verbose: int = getattr(cfg, "verbose", 0)
+        logs: List[Log] = getattr(cfg, "logs", [])
 
         init_logging(logs=logs, verbose=verbose)
 
-        logger = Logger("clap", args=args).bind_fargs(argv=argv)
+        logger = Logger("clap", cfg=cfg).bind_fargs(argv=argv)
 
         # The following log messages will obviously only be visible if the
         # corresponding log level really is enabled, but stating the obvious in
@@ -83,7 +83,7 @@ def main_factory(
         logger.debug("DEBUG level logging enabled.")
 
         try:
-            status = run(args)
+            status = run(cfg)
         except KeyboardInterrupt:  # pragma: no cover
             logger.info("Received SIGINT signal. Terminating script...")
             return 128 + signal.SIGINT.value
@@ -98,7 +98,7 @@ def main_factory(
     return main
 
 
-class Config(BaseSettings):
+class Config(BaseSettings, allow_mutation=False):
     """Default CLI arguments / app configuration."""
 
     logs: List[Log]
