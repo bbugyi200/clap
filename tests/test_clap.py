@@ -26,16 +26,16 @@ class Config(clap.Config):
 
     do_stuff: bool
 
+    @classmethod
+    def from_cli_args(cls, argv: Sequence[str]) -> "Config":
+        """Constructs a new Config object from command-line arguments."""
+        parser = clap.Parser()
+        parser.add_argument("--do-stuff", action="store_true")
 
-def parse_cli_args(argv: Sequence[str]) -> Config:
-    """This CLI parser function is meant to be passed into main_factory()."""
-    parser = clap.Parser()
-    parser.add_argument("--do-stuff", action="store_true")
+        args = parser.parse_args(argv[1:])
+        kwargs = vars(args)
 
-    args = parser.parse_args(argv[1:])
-    kwargs = vars(args)
-
-    return Config(**kwargs)
+        return Config(**kwargs)
 
 
 def run_factory(logger_type: LoggerType) -> Callable[[Any], int]:
@@ -144,7 +144,7 @@ def test_log(
     del mock_dynamic_log_fields
 
     run = run_factory(logger_type)
-    main = clap.main_factory(parse_cli_args, run)
+    main = clap.main_factory(run, Config)
     exit_code = main([""] + args)
     assert exit_code == 0
 
@@ -162,7 +162,7 @@ def test_help(mocker: MockerFixture) -> None:
     mocker.patch("sys.exit")
 
     run = run_factory("structlog")
-    main = clap.main_factory(parse_cli_args, run)
+    main = clap.main_factory(run, Config)
     exit_code = main(["", "--help"])
     assert exit_code == 0
 
@@ -183,7 +183,7 @@ def test_new_command_factory() -> None:
 
 def test_config_is_immutable() -> None:
     """Test that the Config object's attributes are immutable."""
-    cfg = parse_cli_args(["", "--do-stuff"])
+    cfg = Config.from_cli_args(["", "--do-stuff"])
     assert cfg.do_stuff
 
     with pytest.raises(TypeError):

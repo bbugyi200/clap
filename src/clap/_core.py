@@ -22,8 +22,9 @@ from typing import (
     Optional,
     Protocol,
     Sequence,
-    TypeVar,
+    Type,
     cast,
+    runtime_checkable,
 )
 
 from bugyi.lib.meta import scriptname
@@ -39,9 +40,6 @@ from logrus import (
 from pydantic import BaseSettings
 
 
-_T = TypeVar("_T")
-
-
 class MainType(Protocol):
     """Type of the `main()` function returned by `main_factory()`."""
 
@@ -50,14 +48,14 @@ class MainType(Protocol):
 
 
 def main_factory(
-    parse_cli_args: Callable[[Sequence[str]], _T], run: Callable[[_T], int]
+    run: Callable[[ConfigType], int], config: Type[ConfigType]
 ) -> MainType:
     """Factory used to create a new `main()` function.
 
     Args:
-        parse_cli_args: A function that parses command-line arguments and
-          returns an object (e.g. a dataclass) that represents those arguments.
         run: A function that acts as the real entry point for a program.
+        config: A pydantic.BaseSettings type that represents our applications
+          config.
 
     Returns:
         A generic main() function to be used as a script's entry point.
@@ -67,7 +65,7 @@ def main_factory(
         if argv is None:  # pragma: no cover
             argv = sys.argv
 
-        cfg = parse_cli_args(argv)
+        cfg = config.from_cli_args(argv)
 
         verbose: int = getattr(cfg, "verbose", 0)
         logs: List[Log] = getattr(cfg, "logs", [])
@@ -96,6 +94,19 @@ def main_factory(
             return status
 
     return main
+
+
+@runtime_checkable
+class ConfigType(Protocol):
+    """Application Configuration Protocol
+
+    In other words, his class describes what an application Config object
+    should look like.
+    """
+
+    @classmethod
+    def from_cli_args(cls, argv: Sequence[str]) -> "ConfigType":
+        """Constructs a new Config object from command-line arguments."""
 
 
 class Config(BaseSettings, allow_mutation=False):
