@@ -47,6 +47,19 @@ class MainType(Protocol):
         """This method captures the `main()` function's signature."""
 
 
+@runtime_checkable
+class ConfigType(Protocol):
+    """Application Configuration Protocol
+
+    In other words, his class describes what an application Config object
+    should look like.
+    """
+
+    @classmethod
+    def from_cli_args(cls, argv: Sequence[str]) -> "ConfigType":
+        """Constructs a new Config object from command-line arguments."""
+
+
 def main_factory(
     run: Callable[[ConfigType], int], config: Type[ConfigType]
 ) -> MainType:
@@ -94,19 +107,6 @@ def main_factory(
             return status
 
     return main
-
-
-@runtime_checkable
-class ConfigType(Protocol):
-    """Application Configuration Protocol
-
-    In other words, his class describes what an application Config object
-    should look like.
-    """
-
-    @classmethod
-    def from_cli_args(cls, argv: Sequence[str]) -> "ConfigType":
-        """Constructs a new Config object from command-line arguments."""
 
 
 class Config(BaseSettings, allow_mutation=False):
